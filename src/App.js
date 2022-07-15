@@ -9,7 +9,7 @@ function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
 
   const showCartHandler = () => {
-    setCartIsShown(true);
+    setCartIsShown((prevcartIsShown) => !prevcartIsShown);
   };
 
   const hideCartHandler = () => {

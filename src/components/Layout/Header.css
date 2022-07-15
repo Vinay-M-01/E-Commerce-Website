@@ -1,6 +1,8 @@
 .header {
   background-color: black;
   height: 2.5rem;
+  position:fixed;
+  width: 100%;
   }
 
 .navbutton{
@@ -10,11 +12,12 @@
   
 }
 .navbutton__section{
-  padding-right: 0px;
+  padding-right: 10px;
   padding-left: 60px;
-  font-size: large;
+  font-size: 18px;
   background-color: black;
   color: azure;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 .cartbutton{
     float: right;
