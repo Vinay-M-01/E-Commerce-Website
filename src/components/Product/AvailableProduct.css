@@ -1,0 +1,58 @@
+.unOrderedList{
+    text-align: center;
+    margin-right: 250px; 
+    margin-left: 250px; 
+    
+}
+
+.mainList {
+    border: 3px solid white;
+    padding: 10px;
+    width: 50%;
+    float: left;
+    padding: 10px;
+    border: 2px solid white;
+}
+
+.itemTitle{
+    list-style-type: none;
+}
+.itemDes{
+    text-align: center;
+    font-size: 30px;
+    padding-top: 20px;
+    font-weight:lighter;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+.itemTitle{
+    font-size: 25px;
+    padding-bottom: 10px;
+}
+
+.itemPrice{
+  
+    font-size: 20px;
+    float: left;
+    margin-left: 150px;
+    padding-top: 5px;
+    font-weight: bold;
+    
+    
+
+}
+.addToCart{
+    float: right;
+    margin-right: 100px;
+    color: red;
+    border: 1px solid skyblue;
+    background-color: skyblue;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    border-radius: 15px;
+
+}

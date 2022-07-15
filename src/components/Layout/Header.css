@@ -1,0 +1,33 @@
+.header {
+  background-color: black;
+  height: 2.5rem;
+  }
+
+.navbutton{
+  text-align: center;
+  padding-left: 40px;
+  border: 5px solid black;
+  
+}
+.navbutton__section{
+  padding-right: 0px;
+  padding-left: 60px;
+  font-size: large;
+  background-color: black;
+  color: azure;
+}
+.cartbutton{
+    float: right;
+    border: 2px solid rgb(35, 128, 177);
+    border-radius: 10px;
+    font-size: large;
+    background-color: black;
+    color: azure;
+    margin-right: 20px;
+}
+.cartcount{
+  align-items:flex-end;
+  float: right;
+  padding-left: 10px;
+  color: aqua;
+}

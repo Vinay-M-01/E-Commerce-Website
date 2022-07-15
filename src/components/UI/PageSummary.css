@@ -1,0 +1,11 @@
+.summary{
+    text-align:center;
+    background-color: rgb(133, 130, 130);
+    border: 10px solid rgb(133, 130, 130);
+    color:white;
+    font-size: 100px;
+    font-family:'Times New Roman', Times, serif;
+    top: 50px;
+    padding-bottom: 50px;
+    font-weight: bold;
+}
