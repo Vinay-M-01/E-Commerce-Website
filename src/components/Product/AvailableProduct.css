@@ -34,7 +34,7 @@
   
     font-size: 20px;
     float: left;
-    margin-left: 150px;
+    margin-left: 80px;
     padding-top: 5px;
     font-weight: bold;
     
@@ -43,7 +43,7 @@
 }
 .addToCart{
     float: right;
-    margin-right: 100px;
+    margin-right: 80px;
     color: red;
     border: 1px solid skyblue;
     background-color: skyblue;

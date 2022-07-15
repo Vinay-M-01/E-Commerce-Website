@@ -9,7 +9,7 @@ const Header = (props) => {
           <button className="navbutton__section"> HOME </button>
           <button className="navbutton__section"> STORE</button>
           <button className="navbutton__section"> ABOUT</button>
-          <button className="cartbutton">
+          <button className="cartbutton" onClick={props.onShowCart}>
             Cart
             <span className="cartcount">0</span>
           </button>

@@ -1,0 +1,42 @@
+.mainCartList{
+    display: flex;
+    text-align: center;
+}
+.cartImage{
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+}
+.cartName{
+    text-align: center;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+.cartCloseButton{
+    float:right;
+    border-radius: 5px;
+    height: 25px;
+    width: 20px;
+    padding-right: 5px;
+}
+.title-price-quantity{
+    flex: 0.5;
+}
+.para{
+    flex: 0.5;
+    padding-left: 50px;
+    border-bottom: 1px dashed black;
+}
+.removeButton{
+    background-color: rgb(233, 75, 75);
+    height: 30px;
+    border-radius: 5px;
+    color: beige;
+    font-size: large;
+}
+
+.para-quantity{
+    flex: 0.5;
+    padding-left: 30px;
+    border-bottom: 1px dashed black;
+}

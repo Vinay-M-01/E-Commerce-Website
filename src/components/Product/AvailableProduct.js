@@ -29,7 +29,7 @@ const AvailableProduct = (props) => {
       <p className="itemTitle">{product.title}</p>
       <img src={product.imageUrl} alt='Nothing happens'></img>
       <div>
-        <div className="itemPrice">{product.price}</div> 
+        <div className="itemPrice">Rs: {product.price}</div> 
         <button className="addToCart">ADD TO CART</button>
       </div>
     </div>
