@@ -41,7 +41,7 @@ const AvailableProduct = (props) => {
               title: item.title,
               imageUrl: item.imageUrl,
               price: item.price,
-              quantity: item.quantity,
+              quantity: 1,
             });
           }}
         >
