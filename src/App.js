@@ -4,6 +4,7 @@ import AvailableProduct from "./components/Product/AvailableProduct";
 import PageSummary from "./components/UI/PageSummary";
 import Cart from "./components/Cart/Cart";
 import {useState} from 'react'
+import CartProvider from "./components/store/CartProvider";
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
@@ -17,13 +18,13 @@ function App() {
   };
 
   return (
-    <div>
-      {cartIsShown && <Cart onClose={hideCartHandler} />}
+    <CartProvider>
+      {cartIsShown && <Cart onClose={hideCartHandler}></Cart>}
       <Header onShowCart={showCartHandler}/>
       <PageSummary/>
       <AvailableProduct/>
       <Footer/>
-    </div>
+    </CartProvider>
   );
 }
 

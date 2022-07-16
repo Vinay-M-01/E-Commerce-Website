@@ -1,7 +1,11 @@
+
+import { useContext } from "react";
 import React from "react";
 import Modal from "../UI/Modal";
 import "./Cart.css";
+import CartContext from "../store/cart-context";
 
+// eslint-disable-next-line
 const cartElements = [
   {
     title: "Colors",
@@ -24,19 +28,22 @@ const cartElements = [
 ];
 
 const Cart = (props) => {
-  const cartItem = cartElements.map((element) => (
+
+  const cartCtx = useContext(CartContext)
+
+  const cartItems = cartCtx.items.map((item) => (
     <div className="mainCartList">
       <img 
-        src={element.imageUrl}
+        src={item.imageUrl}
         alt="Nothing happens"
         className="cartImage"
       ></img>
-      <div className="title-price-quantity">{element.title}</div>
+      <div className="title-price-quantity">{item.title}</div>
       <div className="title-price-quantity">
-        {element.price}
+        {item.price}
       </div>
 
-      <div className="title-price-quantity">{element.quantity}</div>
+      <div className="title-price-quantity">1</div>
       <button className="removeButton"> Remove</button>
     </div>
   ));
@@ -54,8 +61,7 @@ const Cart = (props) => {
         <p className="para">PRICE</p>
         <p className="para-quantity">QUANTITY</p>
       </div>
-      <ul>{cartItem}</ul>
-
+      <ul>{cartItems}</ul>
       <button> Order </button>
     </Modal>
   );

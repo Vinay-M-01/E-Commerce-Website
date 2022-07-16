@@ -20,6 +20,7 @@
     height: 25px;
     width: 20px;
     padding-right: 5px;
+    background-color: rgb(207, 68, 68);
 }
 .title-price-quantity{
     flex: 0.5;

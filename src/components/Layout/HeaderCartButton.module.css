@@ -1,0 +1,15 @@
+.cartbutton{
+    float: right;
+    border: 2px solid rgb(35, 128, 177);
+    border-radius: 10px;
+    font-size: large;
+    background-color: black;
+    color: azure;
+    margin-right: 20px;
+}
+.cartcount{
+  align-items:flex-end;
+  float: right;
+  padding-left: 10px;
+  color: aqua;
+}

@@ -1,4 +1,6 @@
 import "./AvailableProduct.css";
+import { useContext } from "react";
+import CartContext from "../store/cart-context";
 
 const productsArr = [
   {
@@ -24,13 +26,27 @@ const productsArr = [
 ];
 
 const AvailableProduct = (props) => {
-  const productList = productsArr.map((product) => (
+  const cartCtx = useContext(CartContext);
+
+  const productList = productsArr.map((item) => (
     <div className="mainList">
-      <p className="itemTitle">{product.title}</p>
-      <img src={product.imageUrl} alt='Nothing happens'></img>
+      <p className="itemTitle">{item.title}</p>
+      <img src={item.imageUrl} alt="Nothing happens"></img>
       <div>
-        <div className="itemPrice">Rs: {product.price}</div> 
-        <button className="addToCart">ADD TO CART</button>
+        <div className="itemPrice">Rs: {item.price}</div>
+        <button
+          className="addToCart"
+          onClick={() => {
+            cartCtx.addItem({
+              title: item.title,
+              imageUrl: item.imageUrl,
+              price: item.price,
+              quantity: item.quantity,
+            });
+          }}
+        >
+          ADD TO CART
+        </button>
       </div>
     </div>
   ));
