@@ -50,3 +50,12 @@
     border-bottom: 1px dashed black;
     font-weight: bold;
 }
+.totalcost{
+    float: right;
+    font-size: large;
+    color: black;
+    font-weight: bold;
+    padding-right: 25px;
+    padding-bottom:25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}

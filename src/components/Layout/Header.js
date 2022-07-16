@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import "./Header.css";
 import HeaderCartButton from "./HearderCartButton";
+import { NavLink } from "react-router-dom";
 
 const Header = (props) => {
   
@@ -8,9 +9,9 @@ const Header = (props) => {
     <Fragment>
       <div className="header">
         <div className="navbutton">
-          <button className="navbutton__section"> HOME </button>
-          <button className="navbutton__section"> STORE</button>
-          <button className="navbutton__section"> ABOUT</button>
+          <NavLink to="/Home" className="navbutton__section"> HOME </NavLink>
+          <NavLink to="/Store" className="navbutton__section"> STORE</NavLink>
+          <NavLink to="/About" className="navbutton__section"> ABOUT</NavLink>
           <HeaderCartButton onClick={props.onShowCart}></HeaderCartButton>
         </div>
       </div>

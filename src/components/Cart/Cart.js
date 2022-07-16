@@ -62,6 +62,9 @@ const Cart = (props) => {
         <p className="para-quantity">QUANTITY</p>
       </div>
       <ul>{cartItems}</ul>
+      <div className="totalcost">
+        Total Cost : {cartCtx.items.reduce((accumulator, curItem)=>{return accumulator + curItem.quantity*curItem.price},0)} /-
+      </div>
       <button> Order </button>
     </Modal>
   );

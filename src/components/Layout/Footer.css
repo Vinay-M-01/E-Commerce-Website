@@ -4,6 +4,7 @@
     background-color:rgb(74, 156, 188);
     display:flex;
     align-items: center;
+    bottom: 0;
   }
 
   .footerText{
