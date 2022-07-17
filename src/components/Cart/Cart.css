@@ -59,3 +59,13 @@
     padding-bottom:25px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+.purchaseButton{
+    border: 3px solid skyblue;
+    padding: 10px;
+    font-size: larger;  
+    background-color: skyblue;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    align-items: center;
+    border-radius: 15px;
+}

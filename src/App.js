@@ -12,7 +12,7 @@ function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
 
   const showCartHandler = () => {
-    setCartIsShown((prevcartIsShown) => !prevcartIsShown);
+    setCartIsShown(true)
   };
 
   const hideCartHandler = () => {
@@ -20,7 +20,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div >
       <Route path="/Home">
     <CartProvider>
       

@@ -1,5 +1,5 @@
 
-import { useContext } from "react";
+import { useContext} from "react";
 import React from "react";
 import Modal from "../UI/Modal";
 import "./Cart.css";
@@ -53,9 +53,18 @@ const Cart = (props) => {
     </div>
   ));
 
+  const cartHasItems = cartCtx.items.length > 0
+
+  const onPurchaseHandler = () => {
+    alert('Thanks for the purchase')
+      cartCtx.items.map((item) => (
+        cartCtx.purchaseItem({title:item.title})
+      ))
+  }
+
 
   return (
-    <Modal>
+    <Modal onClose={props.onClose}>
       <button onClick={props.onClose} className="cartCloseButton">
         X
       </button>
@@ -67,11 +76,17 @@ const Cart = (props) => {
         <p className="para">PRICE</p>
         <p className="para-quantity">QUANTITY</p>
       </div>
+
       <ul>{cartItems}</ul>
+
       <div className="totalcost">
         Total Cost : {cartCtx.items.reduce((accumulator, curItem)=>{return accumulator + curItem.quantity*curItem.price},0)} /-
       </div>
-      <button onClick={() => alert('Thanks for the purchase')}> Purchase </button>
+
+      <div>
+      {cartHasItems && <button onClick={onPurchaseHandler} className="purchaseButton"> Purchase </button>}
+      </div>
+      
     </Modal>
   );
 };

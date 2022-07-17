@@ -37,6 +37,10 @@ const defaultCartState = {
         }
       }
 
+      if(action.type === 'PURCHASE'){
+        console.log('All Items Purchased')
+      }
+
     return defaultCartState;
   }
 
@@ -54,11 +58,16 @@ const CartProvider = (props) => {
         dispatchCartAction({type: 'REMOVE_CART_ITEM', item:item})
     }
 
+    const purchaseItemCartHandler = item => {
+        dispatchCartAction({type: 'PURCHASE', item : item})
+    }
+
     const cartContext = {
         items: cartState.items,
         totalAmount: cartState.totalAmount,
         addItem: addItemToCartHandler,
         removeItem: removeItemFromCartHandler,
+        purchaseItem: purchaseItemCartHandler,
     }
     
     return (
