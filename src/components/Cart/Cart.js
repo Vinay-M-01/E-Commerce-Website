@@ -44,9 +44,15 @@ const Cart = (props) => {
       </div>
 
       <div className="title-price-quantity">{item.quantity}</div>
-      <button className="removeButton"> Remove</button>
+      <button className="removeButton" onClick={() => {cartCtx.removeItem({
+              title: item.title,
+              imageUrl: item.imageUrl,
+              price: item.price,
+              quantity: 1,
+            })}}> Remove</button>
     </div>
   ));
+
 
   return (
     <Modal>
@@ -65,7 +71,7 @@ const Cart = (props) => {
       <div className="totalcost">
         Total Cost : {cartCtx.items.reduce((accumulator, curItem)=>{return accumulator + curItem.quantity*curItem.price},0)} /-
       </div>
-      <button> Order </button>
+      <button onClick={() => alert('Thanks for the purchase')}> Purchase </button>
     </Modal>
   );
 };

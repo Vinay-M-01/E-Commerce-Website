@@ -21,13 +21,22 @@ const defaultCartState = {
             updatedItems = [...state.items]
             updatedItems[existingCartItemIndex] = updatedItem;
         }else{
-            updatedItems ={...action.item}
             updatedItems = state.items.concat(action.item);
         }
         return {
           items: updatedItems,
         };
       }
+
+      if(action.type === 'REMOVE_CART_ITEM'){
+        console.log('This remmove is working-Found')
+        
+        let updatedItems = state.items.filter( (item) => item.title !== action.item.title)
+        return{
+            items: updatedItems
+        }
+      }
+
     return defaultCartState;
   }
 
@@ -39,8 +48,10 @@ const CartProvider = (props) => {
         dispatchCartAction({type: 'ADD_CART_ITEM', item: item})
     }
 
-    const removeItemFromCartHandler = id => {
+    const removeItemFromCartHandler = item => {
         //HAVE TO CODE FOR REMOVE ITEM 
+        
+        dispatchCartAction({type: 'REMOVE_CART_ITEM', item:item})
     }
 
     const cartContext = {
