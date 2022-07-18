@@ -31,7 +31,7 @@ const AvailableProduct = (props) => {
   const productList = productsArr.map((item) => (
     <div className="mainList">
       <p className="itemTitle">{item.title}</p>
-      <img src={item.imageUrl} alt="Nothing happens"></img>
+      <img src={item.imageUrl} alt="Nothing happens" className="itemImage"></img>
       <div>
         <div className="itemPrice">Rs: {item.price}</div>
         <button

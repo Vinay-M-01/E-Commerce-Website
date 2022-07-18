@@ -29,7 +29,10 @@
       width: 40rem;
       left: calc(50% - 20rem);
       float: right;
-      position: fixed;
+      position:fixed;
+      margin-left: 430px;
+      top: 50px;
+      right: 0;
     }
   }
   
