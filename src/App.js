@@ -8,6 +8,7 @@ import About from './pages/About'
 
 import Home from "./pages/Home";
 import Store from "./pages/Store";
+import Contact from "./pages/Contact";
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
@@ -28,6 +29,7 @@ function App() {
       <Home/>
       <Store/>
       <About/>
+      <Contact/>
       <Footer />
     </CartProvider>
   );

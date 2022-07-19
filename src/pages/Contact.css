@@ -1,0 +1,61 @@
+.mainForm {
+  border: 2px solid black;
+  margin: 09%;
+  height: 200px;
+  text-align: center;
+  align-items: center;
+}
+
+.inputName {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  text-align: left;
+  font-size: large;
+}
+.inputEmail {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  text-align: left;
+  font-size: large;
+}
+.inputPhone {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 01rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  text-align: left;
+  font-size: large;
+  padding-bottom: 10px;
+}
+.name {
+    display: block;
+    width: 100%;
+    font: inherit;
+    padding: 0.2rem;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+}
+.email {
+    display: block;
+    width: 100%;
+    font: inherit;
+    padding: 0.2rem;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+}
+.phoneNumber {
+    display: block;
+    width: 100%;
+    font: inherit;
+    padding: 0.2rem;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    margin-bottom: 0.5rem;
+}
