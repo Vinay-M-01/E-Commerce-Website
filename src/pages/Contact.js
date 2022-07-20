@@ -1,4 +1,5 @@
-import { Route } from "react-router-dom";
+
+import PageSummary from "../components/UI/PageSummary";
 import './Contact.css'
 
 const Contact = (props) => {
@@ -19,7 +20,8 @@ const Contact = (props) => {
     };
 
   return (
-    <Route path="/Contact">
+    <>
+      <PageSummary/>
       <form onSubmit={formSubmitHandler} className="mainForm">
         <div className="inputName">
           <label htmlFor="name"> Name: </label>
@@ -38,7 +40,7 @@ const Contact = (props) => {
 
         <button type='submit' className="submit"> Submit</button>
       </form>
-    </Route>
+    </>
   );
 };
 

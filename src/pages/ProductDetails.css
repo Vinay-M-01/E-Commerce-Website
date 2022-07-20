@@ -1,0 +1,22 @@
+.layout{
+    align-items: center;
+}
+
+.container{
+    margin: 6%;
+}
+
+.leftsection{
+    float: left;
+    padding-top: 40px;
+}
+.image{
+    border-radius: 10px;
+    box-shadow: 10px 10px 8px #888888;
+}
+.rightsection{
+    float: right;
+    width: 900px;
+    height: 600px;
+}
+

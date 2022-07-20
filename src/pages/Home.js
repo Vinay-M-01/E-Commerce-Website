@@ -1,7 +1,8 @@
-import { NavLink, Route } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 
 import "./Home.css";
 import playButton from "../Assets/PlayButton.png";
+import PageSummary from "../components/UI/PageSummary";
 
 const Home = (props) => {
   const tours = [
@@ -16,7 +17,8 @@ const Home = (props) => {
   const tourList = (
     <ul className="mainList" style={{ marginLeft: "25%" }}>
       {tours.map((item) => (
-        <li key={Math.random().toString()}
+        <li
+          key={Math.random().toString()}
           className="listItem"
           style={{
             display: "flex",
@@ -28,10 +30,10 @@ const Home = (props) => {
           <div className="dpc" style={{ flex: "1.2" }}>
             {item.date}
           </div>
-          <div className="dpc" style={{ flex: "1.2", fontWeight:'bold' }}>
+          <div className="dpc" style={{ flex: "1.2", fontWeight: "bold" }}>
             {item.place}
           </div>
-          <div className="dpc" style={{ flex: "1.2" , color:'gray'}}>
+          <div className="dpc" style={{ flex: "1.2", color: "gray" }}>
             {item.concert}
           </div>
           <button
@@ -42,9 +44,9 @@ const Home = (props) => {
               borderColor: "skyblue",
               color: "White",
               fontFamily: "verdana",
-              fontSize:'large',
-              borderRadius:'5px',
-              marginLeft:'30px'
+              fontSize: "large",
+              borderRadius: "5px",
+              marginLeft: "30px",
             }}
           >
             Buy Tickets
@@ -55,7 +57,8 @@ const Home = (props) => {
   );
 
   return (
-    <Route path="/Home">
+    <>
+      <PageSummary />
       <div className="HomeButtons">
         <div className="albumButton"> Get our Latest Album</div>
         <NavLink className="playButton" to="/Store">
@@ -74,7 +77,7 @@ const Home = (props) => {
         Tours
       </div>
       {tourList}
-    </Route>
+    </>
   );
 };
 export default Home;

@@ -1,12 +1,13 @@
 
-import { Route } from "react-router-dom";
 import AvailableProduct from "../components/Product/AvailableProduct";
+import PageSummary from "../components/UI/PageSummary";
 
 const Store = (props) => {
   return (
-    <Route path="/Store">
-      <AvailableProduct />
-    </Route>
+    <>
+      <PageSummary/>
+      <AvailableProduct productsArr={props.productsArr}/>
+    </>
   );
 };
 

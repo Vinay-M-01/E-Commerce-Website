@@ -1,17 +1,42 @@
 import Footer from "./components/Layout/Footer";
 import Header from "./components/Layout/Header";
-import PageSummary from "./components/UI/PageSummary";
 import Cart from "./components/Cart/Cart";
 import { useState } from "react";
 import CartProvider from "./components/store/CartProvider";
-import About from './pages/About'
-
+import About from "./pages/About";
+import { Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Store from "./pages/Store";
+import PageSummary from "./components/UI/PageSummary";
+import AvailableProduct from "./components/Product/AvailableProduct";
 import Contact from "./pages/Contact";
+import ProductDetails from "./pages/ProductDetails";
+
+const productsArr = [
+  {
+    title: "Colors",
+    price: 100,
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
+  },
+  {
+    title: "Black and white Colors",
+    price: 50,
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
+  },
+  {
+    title: "Yellow and Black Colors",
+    price: 70,
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
+  },
+  {
+    title: "Blue Color",
+    price: 100,
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
+  },
+];
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
+  const [isProduct, setIsProduct] =useState({})
 
   const showCartHandler = () => {
     setCartIsShown(true);
@@ -21,15 +46,34 @@ function App() {
     setCartIsShown(false);
   };
 
+  function productDetails(productObj){
+    console.log("Button clicked ")
+    setIsProduct(productObj)
+  }
+
   return (
     <CartProvider>
       <Header onShowCart={showCartHandler} />
       {cartIsShown && <Cart onClose={hideCartHandler}></Cart>}
-      <PageSummary />
-      <Home/>
-      <Store/>
-      <About/>
-      <Contact/>
+      <Route path="/Home">
+        <Home />
+      </Route>
+
+      <Route path="/Store">
+      <PageSummary/>
+      <AvailableProduct productsArr={productsArr} productDetails={productDetails}/>
+      </Route>
+
+      <About />
+
+      <Route path="/Contact">
+        <Contact />
+      </Route>
+
+      <Route path="/products/:title">
+        <ProductDetails passedProduct={isProduct}/>
+      </Route>
+
       <Footer />
     </CartProvider>
   );
