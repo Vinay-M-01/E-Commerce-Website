@@ -2,7 +2,7 @@ import Footer from "./components/Layout/Footer";
 import Header from "./components/Layout/Header";
 import Cart from "./components/Cart/Cart";
 import { useState } from "react";
-
+import { useContext } from "react";
 import About from "./pages/About";
 import { Redirect, Route } from "react-router-dom";
 import Home from "./pages/Home";
@@ -11,6 +11,7 @@ import AvailableProduct from "./components/Product/AvailableProduct";
 import Contact from "./pages/Contact";
 import ProductDetails from "./pages/ProductDetails";
 import LoginPage from "./pages/LoginPage";
+import CartContext from "./components/store/cart-context";
 
 const productsArr = [
   {
@@ -36,8 +37,9 @@ const productsArr = [
 ];
 
 function App() {
+  const cartCtx = useContext(CartContext);
   const [cartIsShown, setCartIsShown] = useState(false);
-  const [isProduct, setIsProduct] =useState({})
+  const [isProduct, setIsProduct] = useState({});
 
   const showCartHandler = () => {
     setCartIsShown(true);
@@ -47,9 +49,9 @@ function App() {
     setCartIsShown(false);
   };
 
-  function productDetails(productObj){
-    console.log("Button clicked ")
-    setIsProduct(productObj)
+  function productDetails(productObj) {
+    console.log("Button clicked ");
+    setIsProduct(productObj);
   }
 
   return (
@@ -58,19 +60,25 @@ function App() {
       {cartIsShown && <Cart onClose={hideCartHandler}></Cart>}
 
       <Route path="/">
-        <Redirect to='/Store'/>
+        <Redirect to="/Store" />
       </Route>
       <Route path="/Home">
         <Home />
       </Route>
 
-      <Route path="/Login">
-        <LoginPage />
-      </Route>
+      {!cartCtx.isisLoggedIn && (
+        <Route path="/Login">
+          <LoginPage />
+        </Route>
+      )}
 
       <Route path="/Store">
-      <PageSummary/>
-      <AvailableProduct productsArr={productsArr} productDetails={productDetails}/>
+        <PageSummary />
+        {cartCtx.isisLoggedIn && (<AvailableProduct
+          productsArr={productsArr}
+          productDetails={productDetails}
+        />)}
+        {!cartCtx.isisLoggedIn && <Redirect to='/Login'/>}
       </Route>
 
       <About />
@@ -80,7 +88,7 @@ function App() {
       </Route>
 
       <Route path="/products/:title">
-        <ProductDetails passedProduct={isProduct}/>
+        <ProductDetails passedProduct={isProduct} />
       </Route>
 
       <Footer />

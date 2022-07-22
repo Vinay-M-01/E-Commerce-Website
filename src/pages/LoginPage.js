@@ -47,9 +47,9 @@ const LoginPage = () => {
       }else{
         return res.json().then(data => {
           let errorMessage = 'Authentication Failed';
-          // if(data && data.error && data.error.message){
-          //   errorMessage = data.error.message
-          // }
+          if(data && data.error && data.error.message){
+            errorMessage = data.error.message
+          }
           throw new Error(errorMessage);
           
         })
@@ -58,6 +58,7 @@ const LoginPage = () => {
       cartCtx.logIn(data.idToken)
       localStorage.setItem('token', data.idToken)
       history.replace('/Store')
+      console.log("Login Success")
   })
     .catch((err) =>{
       alert(err.errorMessage)
