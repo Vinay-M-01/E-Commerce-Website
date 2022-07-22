@@ -2,14 +2,15 @@ import Footer from "./components/Layout/Footer";
 import Header from "./components/Layout/Header";
 import Cart from "./components/Cart/Cart";
 import { useState } from "react";
-import CartProvider from "./components/store/CartProvider";
+
 import About from "./pages/About";
-import { Route } from "react-router-dom";
+import { Redirect, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import PageSummary from "./components/UI/PageSummary";
 import AvailableProduct from "./components/Product/AvailableProduct";
 import Contact from "./pages/Contact";
 import ProductDetails from "./pages/ProductDetails";
+import LoginPage from "./pages/LoginPage";
 
 const productsArr = [
   {
@@ -52,11 +53,19 @@ function App() {
   }
 
   return (
-    <CartProvider>
+    <>
       <Header onShowCart={showCartHandler} />
       {cartIsShown && <Cart onClose={hideCartHandler}></Cart>}
+
+      <Route path="/">
+        <Redirect to='/Store'/>
+      </Route>
       <Route path="/Home">
         <Home />
+      </Route>
+
+      <Route path="/Login">
+        <LoginPage />
       </Route>
 
       <Route path="/Store">
@@ -75,7 +84,7 @@ function App() {
       </Route>
 
       <Footer />
-    </CartProvider>
+    </>
   );
 }
 

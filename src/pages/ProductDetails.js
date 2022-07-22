@@ -11,7 +11,6 @@ const ProductDetails = (props) => {
     return curNumber + item.quantity;
   }, 0);
 
-
   const productDetailsList = (
     <section className="container">
       <div className="leftsection">
@@ -21,13 +20,31 @@ const ProductDetails = (props) => {
           alt={props.passedProduct.title}
           className="image"
           style={{ overflow: "hidden" }}
-      onMouseOver={(e) => (e.currentTarget.style = { transform: "scale(1.25)", overflow: "hidden" })}
-      onMouseOut={(e) => (e.currentTarget.style = { transform: "scale(1)", overflow: "hidden" })}
+          onMouseOver={(e) =>
+            (e.currentTarget.style = {
+              transform: "scale(1.25)",
+              overflow: "hidden",
+            })
+          }
+          onMouseOut={(e) =>
+            (e.currentTarget.style = {
+              transform: "scale(1)",
+              overflow: "hidden",
+            })
+          }
         />
         <h4 style={{ bottum: "0" }}>Quantity : {numberOfCartItems}</h4>
       </div>
       <div className="rightsection">
-        <h1 style={{ textAlign: "center", color: "black", border:"1px solid black", backgroundColor:"#87ceeb", borderRadius:"10px" }}>
+        <h1
+          style={{
+            textAlign: "center",
+            color: "black",
+            border: "1px solid black",
+            backgroundColor: "#21588F",
+            borderRadius: "10px",
+          }}
+        >
           {props.passedProduct.title}
         </h1>
         <h2> Reviews :</h2>
@@ -49,12 +66,9 @@ const ProductDetails = (props) => {
           the one that those works, we are less than they, this refused to the
           pleasures of deleniti? Those are! Will unfold in times of pleasure,
           this pain will be a right enjoyed by
-        </p>
-    
-          <h2>Product price : {props.passedProduct.price}/- </h2>
-          
-      
+        </p><br></br>
 
+        <h2>Product price : {props.passedProduct.price}/- </h2>
         <button
           className="addToCart"
           onClick={() => {
