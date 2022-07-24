@@ -62,13 +62,14 @@ function App() {
       <Route path="/">
         <Redirect to="/Store" />
       </Route>
+
       <Route path="/Home">
         <Home />
       </Route>
      
-        <Route path="/Login">
-          <LoginPage />
-        </Route>
+      <Route path="/Login">
+        <LoginPage />
+      </Route>
 
       <Route path="/Store">
         <PageSummary />

@@ -32,7 +32,7 @@ const Cart = (props) => {
   const cartCtx = useContext(CartContext)
 
   const cartItems = cartCtx.items.map((item) => (
-    <div className="mainCartList" >
+    <div className="mainCartList" key={item.title}>
       <img 
         src={item.imageUrl}
         alt="Nothing happens"

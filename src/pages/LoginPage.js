@@ -59,6 +59,8 @@ const LoginPage = () => {
       localStorage.setItem('token', data.idToken)
       history.replace('/Store')
       console.log("Login Success")
+      localStorage.setItem('loggedEmail', data.email.replace('@','').replace('.', ''))
+
   })
     .catch((err) =>{
       alert(err.errorMessage)
