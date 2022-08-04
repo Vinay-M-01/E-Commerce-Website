@@ -69,7 +69,7 @@ const LoginPage = () => {
 
   return (
     <section className={classes.auth}>
-      <h1>Login</h1>
+      <h1>{isLogin ? 'Login' : 'Sign Up'}</h1>
       
       <form onSubmit={submitHandler}>
         <div className={classes.control}>
@@ -82,8 +82,16 @@ const LoginPage = () => {
         </div>
         <div className={classes.actions}>
 
-          {!isLoading && <button>Login</button>}
+          {!isLoading && <button>{isLogin ? 'Login' : 'Create Account'}</button>}
           {isLoading && <p> Sending Request...!</p>}
+
+          <button
+            type='button'
+            className={classes.toggle}
+            onClick={switchAuthModeHandler}
+          >
+            {isLogin ? 'Create new account' : 'Login with existing account'}
+          </button>
           
         </div>
       </form>
