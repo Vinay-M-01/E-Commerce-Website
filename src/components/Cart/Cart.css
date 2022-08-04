@@ -39,7 +39,7 @@
 .plusButton{
 
     background-color: lightgreen;
-    margin-right: 20px;
+    margin-right: 30px;
     border-radius: 6px;
     font-size: large;
 
@@ -48,7 +48,8 @@
     background-color: lightsalmon;
     margin-right: 20px;
     border-radius: 6px;
-    font-size: large;
+    font-size: larger;
+
 }
 .removeButton{
     background-color: rgb(233, 75, 75);
