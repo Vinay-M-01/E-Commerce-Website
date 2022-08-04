@@ -39,6 +39,16 @@ async function reqPATCH(id,quantityUpdater){
   })
 };
 
+async function reqPATCHReduce(id,quantityUpdater){
+        
+  const response = await fetch(`https://movies-app-d5ee6-default-rtdb.firebaseio.com/${getEmailID}/${id}.json`,
+  {
+      method:'PATCH',
+      body:JSON.stringify({quantity:quantityUpdater-1})
+      
+  })
+};
+
   
   if (action.type === "ADD_CART_ITEM") {
     const existingCartItemIndex = state.items.findIndex(
@@ -157,12 +167,82 @@ async function reqPATCH(id,quantityUpdater){
     };
   }
 
+  if(action.type === "REDUCE_ITEM_BY_ONE"){
+    const existingCartItemIndex = state.items.findIndex(
+      (item) => item.title === action.item.title
+    );
+
+    const existingCartrItem = state.items[existingCartItemIndex];
+    let updatedItems;
+
+    if (existingCartrItem.quantity > 1){
+      const updatedItem = {
+        ...existingCartrItem,
+        quantity: existingCartrItem.quantity - action.item.quantity,
+      };
+      updatedItems = [...state.items];
+      updatedItems[existingCartItemIndex] = updatedItem;
+
+       // GET Request to firebase
+      fetch(`https://movies-app-d5ee6-default-rtdb.firebaseio.com/${getEmailID}.json`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+      console.log(data)
+      check(data, action.item.title)
+      let quantBack = (state.items[existingCartItemIndex].quantity)
+      reqPATCHReduce(identifier, quantBack)
+      })
+
+    }else{
+      updatedItems = state.items.filter(
+        (item) => item.title !== action.item.title
+      );
+
+      fetch(
+        `https://movies-app-d5ee6-default-rtdb.firebaseio.com/${getEmailID}.json`,
+        {
+          method: "PUT",
+          body: JSON.stringify(updatedItems),
+        }
+      )
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          console.log('post data')
+          console.log(data.name);
+        
+        });
+    }
+    return {
+      items: updatedItems,
+    };
+  }
+
   if (action.type === "REMOVE_CART_ITEM") {
     console.log("This remmove is found Working");
+    
 
     let updatedItems = state.items.filter(
       (item) => item.title !== action.item.title
     );
+    fetch(
+      `https://movies-app-d5ee6-default-rtdb.firebaseio.com/${getEmailID}.json`,
+      {
+        method: "PUT",
+        body: JSON.stringify(updatedItems),
+      }
+    )
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log('post data')
+        console.log(data.name);
+      
+      });
     
     return {
       items: updatedItems,
@@ -265,6 +345,10 @@ const CartProvider = (props) => {
   const addItemToCartHandler = (item) => {
     dispatchCartAction({ type: "ADD_CART_ITEM", item: item });
   };
+  
+  const ReduceItemHandler = (item) => {
+    dispatchCartAction({ type:"REDUCE_ITEM_BY_ONE", item: item})
+  }
 
   const removeItemFromCartHandler = (item) => {
     //HAVE TO CODE FOR REMOVE ITEM
@@ -295,6 +379,7 @@ const CartProvider = (props) => {
     // items: isItems,
     totalAmount: cartState.totalAmount,
     addItem: addItemToCartHandler,
+    reduceItemByOne: ReduceItemHandler,
     removeItem: removeItemFromCartHandler,
     purchaseItem: purchaseItemCartHandler,
     items01: token,

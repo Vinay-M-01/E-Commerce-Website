@@ -1,9 +1,20 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import "./Header.css";
 import HeaderCartButton from "./HearderCartButton";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
+import CartContext from "../store/cart-context";
 
 const Header = (props) => {
+
+  const cartCtx = useContext(CartContext)
+  const history = useHistory()
+
+  const logoutButtonHandler = () =>{
+    localStorage.clear()
+    history.replace('/Login')
+    console.log('Logout succesfull')
+    window.location.reload(false);
+  }
   
   return (
     <Fragment>
@@ -13,8 +24,9 @@ const Header = (props) => {
           <NavLink to="/Store" className="navbutton__section"> STORE</NavLink>
           <NavLink to="/About" className="navbutton__section"> ABOUT</NavLink>
           <NavLink to="/Contact" className="navbutton__section"> CONTACT</NavLink>
-          <NavLink to="/Login" className="navbutton__section"> Login </NavLink>
-          <HeaderCartButton onClick={props.onShowCart}></HeaderCartButton>
+          {!cartCtx.isisLoggedIn && <NavLink to="/Login" className="navbutton__section">LOGIN</NavLink> }
+          {cartCtx.isisLoggedIn && <button className="navbutton__section" onClick={logoutButtonHandler}> Logout </button>}
+          {cartCtx.isisLoggedIn && <HeaderCartButton onClick={props.onShowCart}></HeaderCartButton>}
         </div>
       </div>
     </Fragment>

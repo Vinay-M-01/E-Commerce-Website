@@ -44,6 +44,22 @@ const Cart = (props) => {
       </div>
 
       <div className="title-price-quantity">{item.quantity}</div>
+      <div >
+      <button className="plusButton" onClick={() => {cartCtx.addItem({
+        title: item.title,
+        imageUrl: item.imageUrl,
+        price: item.price,
+        quantity: 1,
+      })}}>+</button>
+      
+      <button className="minusButton" onClick={() => {cartCtx.reduceItemByOne({
+        title: item.title,
+        imageUrl: item.imageUrl,
+        price: item.price,
+        quantity: 1,
+      })}}>-</button>
+      </div>
+      
       <button className="removeButton" onClick={() => {cartCtx.removeItem({
               title: item.title,
               imageUrl: item.imageUrl,

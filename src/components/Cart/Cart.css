@@ -31,10 +31,24 @@
 }
 .para{
     flex: 0.5;
-    padding-left: 50px;
+    padding-right: 50px;
     border-bottom: 1px dashed black;
     font-weight: bold;
     align-items: center;
+}
+.plusButton{
+
+    background-color: lightgreen;
+    margin-right: 20px;
+    border-radius: 6px;
+    font-size: large;
+
+}
+.minusButton{
+    background-color: lightsalmon;
+    margin-right: 20px;
+    border-radius: 6px;
+    font-size: large;
 }
 .removeButton{
     background-color: rgb(233, 75, 75);
@@ -46,7 +60,7 @@
 
 .para-quantity{
     flex: 0.5;
-    padding-left: 30px;
+    padding-right: 100px;
     border-bottom: 1px dashed black;
     font-weight: bold;
 }
