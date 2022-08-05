@@ -31,7 +31,7 @@ const cartReducer = (state, action) => {
 
 async function reqPATCH(id,quantityUpdater){
         
-  const response = await fetch(`https://movies-app-d5ee6-default-rtdb.firebaseio.com/${getEmailID}/${id}.json`,
+  const response = await fetch(`https://e-commerce-website-91951-default-rtdb.firebaseio.com/${getEmailID}/${id}.json`,
   {
       method:'PATCH',
       body:JSON.stringify({quantity:quantityUpdater+1})
@@ -41,7 +41,7 @@ async function reqPATCH(id,quantityUpdater){
 
 async function reqPATCHReduce(id,quantityUpdater){
         
-  const response = await fetch(`https://movies-app-d5ee6-default-rtdb.firebaseio.com/${getEmailID}/${id}.json`,
+  const response = await fetch(`https://e-commerce-website-91951-default-rtdb.firebaseio.com/${getEmailID}/${id}.json`,
   {
       method:'PATCH',
       body:JSON.stringify({quantity:quantityUpdater-1})
@@ -70,7 +70,7 @@ async function reqPATCHReduce(id,quantityUpdater){
       updatedItems[existingCartItemIndex] = updatedItem;
 
       // GET Request to firebase
-      fetch(`https://movies-app-d5ee6-default-rtdb.firebaseio.com/${getEmailID}.json`)
+      fetch(`https://e-commerce-website-91951-default-rtdb.firebaseio.com/${getEmailID}.json`)
         .then((res) => {
           return res.json();
         })
@@ -141,7 +141,7 @@ async function reqPATCHReduce(id,quantityUpdater){
 
       // POSTING data to firebase 
       fetch(
-        `https://movies-app-d5ee6-default-rtdb.firebaseio.com/${getEmailID}.json`,
+        `https://e-commerce-website-91951-default-rtdb.firebaseio.com/${getEmailID}.json`,
         {
           method: "POST",
           body: JSON.stringify({
@@ -184,7 +184,7 @@ async function reqPATCHReduce(id,quantityUpdater){
       updatedItems[existingCartItemIndex] = updatedItem;
 
        // GET Request to firebase
-      fetch(`https://movies-app-d5ee6-default-rtdb.firebaseio.com/${getEmailID}.json`)
+      fetch(`https://e-commerce-website-91951-default-rtdb.firebaseio.com/${getEmailID}.json`)
       .then((res) => {
         return res.json();
       })
@@ -201,7 +201,7 @@ async function reqPATCHReduce(id,quantityUpdater){
       );
 
       fetch(
-        `https://movies-app-d5ee6-default-rtdb.firebaseio.com/${getEmailID}.json`,
+        `https://e-commerce-website-91951-default-rtdb.firebaseio.com/${getEmailID}.json`,
         {
           method: "PUT",
           body: JSON.stringify(updatedItems),
@@ -229,7 +229,7 @@ async function reqPATCHReduce(id,quantityUpdater){
       (item) => item.title !== action.item.title
     );
     fetch(
-      `https://movies-app-d5ee6-default-rtdb.firebaseio.com/${getEmailID}.json`,
+      `https://e-commerce-website-91951-default-rtdb.firebaseio.com/${getEmailID}.json`,
       {
         method: "PUT",
         body: JSON.stringify(updatedItems),
@@ -257,7 +257,7 @@ async function reqPATCHReduce(id,quantityUpdater){
     console.log(' RELOAD button is working ')
 
     let initialData =[]
-      fetch(`https://movies-app-d5ee6-default-rtdb.firebaseio.com/${getEmailID}.json`)
+      fetch(`https://e-commerce-website-91951-default-rtdb.firebaseio.com/${getEmailID}.json`)
       .then((response) => {
         if(response.ok){
           return response.json()

@@ -7,7 +7,7 @@ const AvailableProduct = (props) => {
   const cartCtx = useContext(CartContext);
 
   const productList = props.productsArr.map((item) => (
-    <div key={item.key} className="mainList">
+    <div key={Math.random().toString()} className="mainList">
       <p className="itemTitle">{item.title}</p>
       <Link to={`/products/${item.imageUrl}`}>
         <img

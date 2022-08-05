@@ -26,9 +26,9 @@ const LoginPage = () => {
     let url;
     setIsLoading(true)
     if(isLogin){
-      url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBQmo4Ut73CtOvfa_0Mf02t_z3qMgP4dIQ'
+      url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDO2YJZcjHCgTj_6zx_hApfWwxRO9EGMkU'
     }else{
-      url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBQmo4Ut73CtOvfa_0Mf02t_z3qMgP4dIQ'
+      url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDO2YJZcjHCgTj_6zx_hApfWwxRO9EGMkU'
     }
     fetch(url, {
       method:'POST',

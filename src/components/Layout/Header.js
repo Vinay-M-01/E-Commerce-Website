@@ -25,7 +25,7 @@ const Header = (props) => {
           <NavLink to="/About" className="navbutton__section"> ABOUT</NavLink>
           <NavLink to="/Contact" className="navbutton__section"> CONTACT</NavLink>
           {!cartCtx.isisLoggedIn && <NavLink to="/Login" className="navbutton__section">LOGIN</NavLink> }
-          {cartCtx.isisLoggedIn && <button className="navbutton__section" onClick={logoutButtonHandler}> Logout </button>}
+          {cartCtx.isisLoggedIn && <NavLink to="/Login" className="navbutton__section" onClick={logoutButtonHandler}> LOGOUT </NavLink>}
           {cartCtx.isisLoggedIn && <HeaderCartButton onClick={props.onShowCart}></HeaderCartButton>}
         </div>
       </div>

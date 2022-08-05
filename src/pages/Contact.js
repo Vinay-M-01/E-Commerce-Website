@@ -11,7 +11,7 @@ const Contact = (props) => {
             Phone: event.target[2].value,
         };
 
-        const response = await fetch('https://movies-app-d5ee6-default-rtdb.firebaseio.com/users.json',{
+        const response = await fetch('https://e-commerce-website-91951-default-rtdb.firebaseio.com/users.json',{
           method:'POST',
           body:JSON.stringify(user)
     
